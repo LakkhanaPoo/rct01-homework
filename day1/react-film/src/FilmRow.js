@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 import "./App.css";
 import FilmPoster from "./FilmPoster";
+import Fave from "./Fave";
 
 class FilmRow extends Component {
-  getFullYear = year => {
-    let fullYear = new Date(year);
-    return fullYear.getFullYear();
-  };
+  handleDetailsClick = () => {};
   render() {
-    const { title, posterUrl, year } = this.props;
+    const { title, poster_path, release_date } = this.props;
+    let fullYear = new Date(release_date);
+    let year = fullYear.getFullYear();
 
     return (
       <div className="film-row">
-        <FilmPoster posterUrl={posterUrl} title={title} />
+        <FilmPoster poster_path={poster_path} title={title} />
         <div className="film-summary">
           <h1>{title}</h1>
-          <p>{this.getFullYear(year)}</p>
+          <p>{year}</p>
         </div>
+        <Fave />
       </div>
     );
   }

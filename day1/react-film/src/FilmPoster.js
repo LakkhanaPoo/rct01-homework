@@ -3,11 +3,11 @@ import "./App.css";
 
 class FilmPoster extends Component {
   render() {
-    const { title, posterUrl } = this.props;
+    const { title, poster_path } = this.props;
+    const posterPrefix = "https://image.tmdb.org/t/p/w780/";
+    const posterUrl = posterPrefix + poster_path;
 
-    return (
-      <img src={`https://image.tmdb.org/t/p/w780/${posterUrl}`} alt={title} />
-    );
+    return <img src={posterUrl} alt={title} />;
   }
 }
 
